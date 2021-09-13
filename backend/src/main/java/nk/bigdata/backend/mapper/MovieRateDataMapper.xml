@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="nk.bigdata.backend.mapper.MovieRateDataMapper">
+    <select id="getAllByMovieId" resultType="MovieRateData" parameterType="string">
+        select * from movie_rate_data where id = ${id}
+    </select>
+    <delete id="removeAllByMovieId" parameterType="string">
+        delete from movie_rate_data where id = #{id}
+    </delete>
+    <select id="getCurrent" resultType="double">
+        select accumulate_aver_rating from movie_rate_data  where id = #{id} order by date desc limit 1
+    </select>
+</mapper>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="nk.bigdata.backend.mapper.UserMapper">
+    <select id="getAll" resultType="User">
+        select * from user
+    </select>
+    <select id="getByTel" resultType="User" parameterType="string">
+        select * from user where tel = #{tel}
+    </select>
+    <insert id="add" parameterType="User">
+        insert into user value(#{tel},#{name},#{pwd},#{su})
+    </insert>
+    <delete id="remove" parameterType="string">
+        delete from user where tel = #{tel}
+    </delete>
+    <update id="update" parameterType="map">
+        update user
+        <set>
+            <if test="newname != null">
+                name = ${newname},
+            </if>
+            <if test="pwd != null">
+                pwd = ${pwd},
+            </if>
+        </set>
+        where tel = ${tel}
+    </update>
+</mapper>

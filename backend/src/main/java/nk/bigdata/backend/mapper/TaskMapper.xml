@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="nk.bigdata.backend.mapper.TaskMapper">
+    <select id="getAll" resultType="Task">
+        select id,status,log,type,start from task order by start desc
+    </select>
+    <insert id="add" parameterType="Task">
+        insert into task value(#{id},#{status},#{log},#{type},#{start});
+    </insert>
+    <update id="update" parameterType="Task">
+        update task set task.log = ${log}, task.status = ${status} where id = ${id}
+    </update>
+    <select id="getLog" parameterType="string" resultType="string">
+        select log from task where id = ${id}
+    </select>
+    <delete id="remove" parameterType="string">
+        delete from task where id = ${id}
+    </delete>
+    <select id="getById" resultType="Task" parameterType="string">
+        select * from task where id = #{id}
+    </select>
+</mapper>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="nk.bigdata.backend.mapper.MovieWordDataMapper">
+    <select id="getAllByMovieId" resultType="MovieWordData" parameterType="string">
+        select * from movie_word_data where id = ${id} order by value desc limit 50
+    </select>
+    <delete id="removeAllByMovieId" parameterType="string">
+        delete from movie_word_data where id = #{id}
+    </delete>
+</mapper>

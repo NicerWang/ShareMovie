@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+    proj_tomcat:
+        container_name: "proj_tomcat"
+        image: tomcat
+        volumes: 
+            - ~/movie/tomcat/webapps:/usr/local/tomcat/webapps
+    proj_nginx:
+        container_name: "proj_nginx"
+        image: nginx
+        volumes: 
+            - ~/movie/nginx/conf:/etc/nginx
+            - ~/movie/nginx/html:/usr/share/nginx/html
+        ports: 
+            - "80:80"
+        depends_on:
+            - proj_tomcat
+
+    
