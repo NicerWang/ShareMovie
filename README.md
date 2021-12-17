@@ -41,13 +41,13 @@
 
 * 较为克制的动画效果
 
-* 管理员功能(需要使用管理员 用户登陆，并手动访问`/admin`)
+* 管理员功能(需要使用管理员用户登陆，并手动访问`/admin`)
 
   用户管理、电影管理、**自动化**、推荐算法结果展示
 
 ## MapReduce
 
-> 需要使用一个`Hadoop`集群，`MapReduce`在集群中运行。
+> 需要使用一个`Hadoop`集群，`MapReduce`在集群中运行
 >
 > 本项目配置了`NameNode` + 2 x `DataNode`
 
@@ -59,7 +59,7 @@
 
   处理所有影评内容，使用HanLP进行分词，过滤无效词，并写入数据库为生成词云做准备。
 
-* 支持数据更新
+* 支持数据更新。
 
 ## Automate Adapter
 
@@ -73,7 +73,7 @@
 
 ## Spider
 
-> 使用`python` + [`proxy pool`](https://github.com/jhao104/proxy_pool)实现(感谢)
+> 使用`python` + [`proxy pool`](https://github.com/jhao104/proxy_pool)实现(感谢@jhao104)
 >
 > 爬取目标为：`douban.com`
 
@@ -87,7 +87,7 @@
 
 * 二者均需要命令行参数：
 
-  * 参数1：电影ID
+  * 参数1：电影`ID`
   * 参数2：开始时的时间戳（毫秒级，用于数据更新，**可选**）
 
 * **配置时，需首先设定`util/proxy_util.py`中的`url`为代理池地址**
@@ -96,13 +96,13 @@
 
 1. 数据预处理
 
-   1. 爬取的豆瓣电影Top60的影评信息
+   1. 爬取的豆瓣电影`Top60`的影评信息。
    2. 此时用户-电影的评分矩阵过于稀疏，所以筛选了发布影评较活跃的用户(共1026位)，构建新的用户-电影评分矩阵。
    3. 根据电影的信息，使用jieba进行分词，去除无效信息，根据分词结果的相似度，确定电影的相似度(文本相似度分析)。
 
 2. 推荐算法
 
-   基于**随机游走**算法，针对每位用户推荐10部电影(排除该用户已评分电影)
+   基于**随机游走**算法，针对每位用户推荐10部电影(排除该用户已评分电影)。
 
 **时间仓促，本部分未完善，仅作为一个额外的`Feature`出现。**
 
@@ -110,7 +110,7 @@
 
 * `Frontend`
 
-  无需处理
+  无需处理。
 
 * `Backend`
 
@@ -118,13 +118,13 @@
 
 * `Automate Adapter`
 
-  **需要`Hadoop`集群，部署在`master`上（`jar`包）**
+  * **需要`Hadoop`集群，部署在`master`上（`jar`包）。**
 
-  需要在`automate/UploadUtil.java`中设置正确的腾讯云COS密钥。
+  * 需要在`automate/UploadUtil.java`中设置正确的腾讯云COS密钥。
 
-  需要保证`5901`端口可用。
+  * 需要保证`5901`端口可用。
 
-  需要在`automate/UpdateTaskInfo.java`中设置正确的数据库信息。
+  * 需要在`automate/UpdateTaskInfo.java`中设置正确的数据库信息。
 
 * `MapReduce`
 
@@ -135,9 +135,9 @@
   purifydata.jar
   wordcloud.jar
   python(Spider中的内容)
-    comment.py
-  	movieInfo.py
-  	...
+  ->comment.py
+  ->movieInfo.py
+  ->...
   ```
 
-  启动`Hadoop`，而后使用`nohup`启动`automate.jar`
+  启动`Hadoop`，而后使用`nohup`启动`automate.jar`。

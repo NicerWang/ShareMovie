@@ -1,7 +1,7 @@
 import requests
 import json
 
-url = "http://47.93.47.13:5901/get/"
+url = "http://proxy_id:port/get/"
 
 
 def get_proxy_by_url(url):
