@@ -11,7 +11,7 @@
 
 首页效果：
 
-![imgimage-20211217122935055-2](https://pictures-nicerwang-1256891306.cos.ap-beijing.myqcloud.com//imgimgimage-20211217122935055-2.png)
+![Homepage](./homepage.png)
 
 项目共包含6个模块，以下分别介绍：
 
