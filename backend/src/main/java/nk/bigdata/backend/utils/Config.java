@@ -17,7 +17,6 @@ public class Config implements Serializable {
     public String username;
     public String password;
     public String tableName;
-    public String alternativeHosts;
 
     {
         Properties properties = new Properties();
@@ -30,6 +29,5 @@ public class Config implements Serializable {
         username = properties.getProperty("username");
         password = properties.getProperty("password");
         tableName = properties.getProperty("tableName");
-        alternativeHosts = properties.getProperty("alternativeHosts");
     }
 }

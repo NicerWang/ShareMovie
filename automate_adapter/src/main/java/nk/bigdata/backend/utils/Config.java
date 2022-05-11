@@ -17,5 +17,4 @@ public class Config implements Serializable {
     public String username;
     public String password;
     public String tableName;
-    public String alternativeHosts;
 }

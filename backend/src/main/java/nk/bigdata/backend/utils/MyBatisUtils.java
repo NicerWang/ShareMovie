@@ -14,12 +14,7 @@ public class MyBatisUtils {
 
     static {
         String resource = "mybatis-config.xml";
-        InputStream inputStream = null;
-        try {
-            inputStream = Resources.getResourceAsStream(resource);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        InputStream inputStream = MyBatisUtils.class.getClassLoader().getResourceAsStream(resource);
         sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
     }
 

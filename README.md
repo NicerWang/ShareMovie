@@ -1,6 +1,6 @@
 # Share Movie
 
-> 2019企业实训课程项目-筛影网ShareMovie
+> 2019企业实训课程项目筛影网 - ShareMovie
 >
 > 项目成员：
 >
@@ -73,7 +73,7 @@
 
 ## Spider
 
-> 使用`python` + [`proxy pool`](https://github.com/jhao104/proxy_pool)实现(感谢@jhao104)
+> 使用`python` + [`proxy pool`](https://github.com/jhao104/proxy_pool)实现
 >
 > 爬取目标为：`douban.com`
 
